@@ -27,6 +27,8 @@ GameLayer = cc.Layer.extend({
         this._aryBlock = g_block_shape[this._shape];
         this._aryBlockData = this.newArray(CELL_WIDTH, CELL_HEIGHT);
 
+        MW.SCORE = 0;
+
         this.setKeyboardEnabled(true);
         this.schedule(this.update);
 
@@ -227,12 +229,14 @@ GameLayer = cc.Layer.extend({
                 }
             }
         }
+        MW.SCORE += index + 1;
         this._aryBlockData = ary;
     },
 
     onGameOver:function () {
         var scene = cc.Scene.create();
         scene.addChild(GameOver.create());
+        scene.addChild(GameControlMenu.create());
         cc.Director.getInstance().replaceScene(cc.TransitionFade.create(1.2, scene));
     }
 });

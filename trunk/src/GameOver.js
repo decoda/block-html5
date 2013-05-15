@@ -16,7 +16,7 @@ var GameOver = cc.Layer.extend({
             this.addChild(menu, 1, 2);
             menu.setPosition(winSize.width / 2, 220);
 
-            var lbScore = cc.LabelTTF.create("Your Score:"+0,"Arial Bold",16);
+            var lbScore = cc.LabelTTF.create("Your Score:"+MW.SCORE,"Arial Bold",16);
             lbScore.setPosition(winSize.width / 2,255);
             lbScore.setColor(cc.c3b(250,179,0));
             this.addChild(lbScore,10);
